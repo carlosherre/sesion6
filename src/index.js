@@ -1,17 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+//ELEMENTOS: son los bloques más pequeños de mi aplicación en React
+const element=<h1> Hola Mundo !!!</h1>
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//COMPONENTES: permite separar la interfaz en piezas independientes y está compuesta por elementos
+
+//Render recibe un elemento y el contenedor donde se mostrará en mi página html
+ReactDOM.render(element, document.getElementById("root"));

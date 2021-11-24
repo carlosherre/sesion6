@@ -7,7 +7,9 @@ body {
   ul {
     padding-left: 30px;
   }
-  
+  button {
+    background-color: darkmagenta;
+  }
   .board-row:after {
     clear: both;
     content: "";

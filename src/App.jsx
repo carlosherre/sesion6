@@ -12,7 +12,7 @@ export function App() {
 
     //Referencia para obtener a la data ingresada y usarla en el handler
     const taskref=useRef();
-
+    const KEY="listApp.lists";
     //Método para obtener tareas
     const handleTaskAdd = () => {
         //arrow function
@@ -37,15 +37,14 @@ export function App() {
         setListas(newTasks);
     }
 
-    useEffect(()=>{localStorage.setItem("listApp.lists", JSON.stringify(listas));},[listas]);
-
     useEffect(()=>{
-        const storedTask = JSON.parse(localStorage.getItem("listApp.lists"));
+        const storedTask = JSON.parse(localStorage.getItem(KEY));
         if (storedTask){
             setListas(storedTask);
         }
-    },[]);
+    }, []);
 
+    useEffect(()=>{localStorage.setItem(KEY, JSON.stringify(listas));},[listas]);
 
     return (
         //Fragment se utiliza para englobar varios elementos
@@ -54,6 +53,7 @@ export function App() {
             <input ref={taskref} type="text" placeholder="Nueva Tarea"/>
             <button onClick={handleTaskAdd}>+</button>
             <button onClick={handleClearCompleteTask}>-</button>
+            <div>Te quedan {listas.filter((task) => !task.completed).length} tareas por terminar</div>
         </Fragment>
     );
     //Vamos a probar el git
